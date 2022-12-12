@@ -572,7 +572,7 @@ public class store extends javax.swing.JFrame {
                 deleteMouseClicked(evt);
             }
         });
-        main.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 150, 80));
+        main.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 140, 80));
 
         name.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         name.setForeground(new java.awt.Color(255, 0, 0));
@@ -2252,12 +2252,12 @@ public class store extends javax.swing.JFrame {
                 Document collecting = new Document();
 
                 collecting.append("Username", Username);
-                collecting.append("P_Name ", pname);
-                collecting.append(" P_Description", pdec);
-                collecting.append(" P_Price", pprice);
-                collecting.append(" P_Quantity", pprice);
-                collecting.append(" P_Total", ptotal);
-                collecting.append(" Date", date);
+                collecting.append("P_Name", pname);
+                collecting.append("P_Description", pdec);
+                collecting.append("P_Price", pprice);
+                collecting.append("P_Quantity", pprice);
+                collecting.append("P_Total", ptotal);
+                collecting.append("Date", date);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "You purchase an item!");
                 addtocart1.setVisible(false);
@@ -2357,6 +2357,7 @@ public class store extends javax.swing.JFrame {
         
         User_Dashboard view = new User_Dashboard();
         view.uname.setText(profname1.getText());
+        view.display();
         view.setVisible(true);
         this.setVisible(false);
 
@@ -2469,6 +2470,7 @@ public class store extends javax.swing.JFrame {
 
         try {
             DBCursor cursor;
+            mongo = new MongoClient("localhost", 27017);
             db = mongo.getDB("BigData");
             DBCollection coll = db.getCollection("listed");
             cursor = coll.find();

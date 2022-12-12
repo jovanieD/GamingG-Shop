@@ -23,8 +23,6 @@ public final class User_Dashboard extends javax.swing.JFrame {
     DBCollection collect;
 
     MongoClient mongo;
-    MongoDatabase dbconnection;
-    MongoCollection<org.bson.Document> collection;
 
     public User_Dashboard() {
         initComponents();
@@ -85,7 +83,10 @@ public final class User_Dashboard extends javax.swing.JFrame {
         dropdown1.add(productss, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 30));
 
         getContentPane().add(dropdown1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 70, 120, 100));
-        getContentPane().add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, -1, -1));
+
+        uname.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        uname.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 60, 30));
 
         btn1.setBackground(new java.awt.Color(255, 0, 0));
         btn1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -153,7 +154,7 @@ public final class User_Dashboard extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                true, true, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -222,6 +223,7 @@ public final class User_Dashboard extends javax.swing.JFrame {
         String indentity = uname.getText();
         try {
             DBCursor cursor;
+            mongo = new MongoClient("localhost", 27017);
             db = mongo.getDB("BigData");
             DBCollection coll = db.getCollection("sold");
             cursor = coll.find();
@@ -232,12 +234,12 @@ public final class User_Dashboard extends javax.swing.JFrame {
                 DBObject obj = cursor.next();
                 String u = (String) obj.get("Username");
                 if (u.equals(indentity)) {
-                    String a = (String) obj.get("P_Name ");
-                    String b = (String) obj.get("P_Price ");
-                    String c = (String) obj.get("P_Quantity ");
-                    String d = (String) obj.get("P_Total ");
-                    String e = (String) obj.get("Date ");
-                    model.addRow(new Object[]{a, b, c , d, e});
+                    String a = (String) obj.get("P_Name");
+                    String b = (String) obj.get("P_Price");
+                    String c = (String) obj.get("P_Quantity");
+                    String d = (String) obj.get("P_Total");
+                    String e = (String) obj.get("Date");
+                    model.addRow(new Object[]{a, b, c, d, e});
                     table.setModel(model);
                 }
 
