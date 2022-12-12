@@ -28,7 +28,6 @@ public final class User_Dashboard extends javax.swing.JFrame {
         initComponents();
 
         display();
-        uname.setVisible(false);
 
         this.setLocationRelativeTo(null);
         dropdown1.setVisible(false);
@@ -49,14 +48,17 @@ public final class User_Dashboard extends javax.swing.JFrame {
         productss = new javax.swing.JButton();
         uname = new javax.swing.JLabel();
         btn1 = new javax.swing.JButton();
-        btn2 = new javax.swing.JButton();
+        btn6 = new javax.swing.JButton();
         btn3 = new javax.swing.JButton();
         btn4 = new javax.swing.JButton();
+        btn2 = new javax.swing.JButton();
         arrow = new javax.swing.JLabel();
         jdate = new javax.swing.JLabel();
         dropdown = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        showtable1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
+        showtable2 = new javax.swing.JScrollPane();
+        carttable = new javax.swing.JTable();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,21 +86,32 @@ public final class User_Dashboard extends javax.swing.JFrame {
 
         getContentPane().add(dropdown1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 70, 120, 100));
 
-        uname.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        uname.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 60, 30));
+        uname.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        uname.setForeground(new java.awt.Color(0, 255, 255));
+        uname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        getContentPane().add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 120, 40));
 
         btn1.setBackground(new java.awt.Color(255, 0, 0));
         btn1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn1.setForeground(new java.awt.Color(255, 255, 255));
         btn1.setText("PURCHASED PRODUCTS");
-        getContentPane().add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 180, 40));
+        btn1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 180, 40));
 
-        btn2.setBackground(new java.awt.Color(255, 0, 0));
-        btn2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn2.setForeground(new java.awt.Color(255, 255, 255));
-        btn2.setText("ABOUT ");
-        getContentPane().add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 140, 40));
+        btn6.setBackground(new java.awt.Color(255, 0, 0));
+        btn6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn6.setForeground(new java.awt.Color(255, 255, 255));
+        btn6.setText("IN THE CART");
+        btn6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn6MouseClicked(evt);
+            }
+        });
+        getContentPane().add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 180, 40));
 
         btn3.setBackground(new java.awt.Color(255, 0, 0));
         btn3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -109,7 +122,7 @@ public final class User_Dashboard extends javax.swing.JFrame {
                 btn3ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 140, 40));
+        getContentPane().add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 480, 140, 40));
 
         btn4.setBackground(new java.awt.Color(255, 0, 0));
         btn4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -120,15 +133,25 @@ public final class User_Dashboard extends javax.swing.JFrame {
                 btn4ActionPerformed(evt);
             }
         });
-        getContentPane().add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, 140, 40));
+        getContentPane().add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 480, 140, 40));
 
+        btn2.setBackground(new java.awt.Color(255, 0, 0));
+        btn2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn2.setForeground(new java.awt.Color(255, 255, 255));
+        btn2.setText("ABOUT ");
+        getContentPane().add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 140, 40));
+
+        arrow.setBackground(new java.awt.Color(255, 0, 0));
+        arrow.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        arrow.setForeground(new java.awt.Color(255, 0, 0));
         arrow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/arrowback.png"))); // NOI18N
+        arrow.setText("Go Back");
         arrow.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 arrowMouseClicked(evt);
             }
         });
-        getContentPane().add(arrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        getContentPane().add(arrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 170, 50));
 
         jdate.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jdate.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,7 +163,7 @@ public final class User_Dashboard extends javax.swing.JFrame {
                 dropdownMousePressed(evt);
             }
         });
-        getContentPane().add(dropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, -1));
+        getContentPane().add(dropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, -1, -1));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,11 +184,26 @@ public final class User_Dashboard extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(table);
+        showtable1.setViewportView(table);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 680, 320));
+        getContentPane().add(showtable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 680, 320));
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dash.jpg"))); // NOI18N
+        carttable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Name", "Description", "Price"
+            }
+        ));
+        showtable2.setViewportView(carttable);
+
+        getContentPane().add(showtable2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 680, 320));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dashinvert.jpg"))); // NOI18N
         bg.setText("jLabel1");
         bg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -219,7 +257,54 @@ public final class User_Dashboard extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_arrowMouseClicked
 
+    private void btn6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn6MouseClicked
+        // TODO add your handling code here:
+        cartdisplay();
+    }//GEN-LAST:event_btn6MouseClicked
+
+    private void btn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn1MouseClicked
+        // TODO add your handling code here:
+        display();
+    }//GEN-LAST:event_btn1MouseClicked
+
+    public void cartdisplay(){
+        showtable2.setVisible(true);
+        carttable.setVisible(true);
+        String indentity = uname.getText();
+
+        try {
+            DBCursor cursor;
+            mongo = new MongoClient("localhost", 27017);
+            db = mongo.getDB("BigData");
+            DBCollection coll = db.getCollection("listed");
+            cursor = coll.find();
+            String[] columnNames = {"Name", "Description", " Price"};
+            DefaultTableModel model = new DefaultTableModel(columnNames, 0);
+
+            while (cursor.hasNext()) {
+                DBObject obj = cursor.next();
+                String u = (String) obj.get("UserID");
+                if (u.equals(indentity)) {
+                    String n = (String) obj.get("Name");
+                    String q = (String) obj.get("Description");
+                    String p = (String) obj.get("Price");
+                    model.addRow(new Object[]{n, q, p});
+                    carttable.setModel(model);
+                }
+
+            }
+
+            cursor.close();
+        } catch (Exception ex) {
+            System.out.println(ex);
+
+        }
+    }
+    
     public void display() {
+        showtable2.setVisible(true);
+        table.setVisible(true);
+        carttable.setVisible(false);
         String indentity = uname.getText();
         try {
             DBCursor cursor;
@@ -292,12 +377,15 @@ public final class User_Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton btn2;
     private javax.swing.JButton btn3;
     private javax.swing.JButton btn4;
+    private javax.swing.JButton btn6;
+    private javax.swing.JTable carttable;
     private javax.swing.JLabel dropdown;
     private javax.swing.JPanel dropdown1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jdate;
     private javax.swing.JButton productss;
+    private javax.swing.JScrollPane showtable1;
+    private javax.swing.JScrollPane showtable2;
     private javax.swing.JTable table;
     public javax.swing.JLabel uname;
     // End of variables declaration//GEN-END:variables
