@@ -132,6 +132,9 @@ public class store extends javax.swing.JFrame {
         i15 = new javax.swing.JLabel();
         lowerbg2 = new javax.swing.JLabel();
         dropdown = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         main = new javax.swing.JPanel();
         addedtable = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
@@ -476,7 +479,33 @@ public class store extends javax.swing.JFrame {
         box3.add(lowerbg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 6, 570, 70));
 
         getContentPane().add(box3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, -1, 80));
-        getContentPane().add(dropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 60, 120, 130));
+
+        dropdown.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/logout (1).png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        dropdown.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 80, 40));
+
+        jButton1.setBackground(new java.awt.Color(0, 255, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jButton1.setText("DASHBOARD");
+        dropdown.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 100, 30));
+
+        jButton2.setBackground(new java.awt.Color(0, 255, 255));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jButton2.setText("PRODUCTS");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        dropdown.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 30));
+
+        getContentPane().add(dropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 120, 130));
 
         main.setBackground(new java.awt.Color(204, 255, 255));
         main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -2116,11 +2145,11 @@ public class store extends javax.swing.JFrame {
 
         if (pquant.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Input Quantity!");
-        }else if (pname.isBlank()){
+        } else if (pname.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please select an item");
-        }else if (pprice.isBlank()){
+        } else if (pprice.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please select an item");
-        }else {
+        } else {
             try {
                 mongo = new MongoClient("localhost", 27017);
                 dbconnection = mongo.getDatabase("BigData");
@@ -2165,6 +2194,68 @@ public class store extends javax.swing.JFrame {
         // TODO add your handling code here:
         dropdown.setVisible(false);
     }//GEN-LAST:event_bgMouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        String user = profname1.getText();
+
+        if (user.isBlank()) {
+            JOptionPane.showMessageDialog(null, "Your not yet Log in");
+        } else {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        descrip1.setVisible(true);
+        descrip2.setVisible(true);
+        descrip3.setVisible(true);
+
+        String tag = "GM 1";
+        String price = "999";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
+        disablelabel();
+        delete.setVisible(false);
+        addedtable.setVisible(false);
+
+        addtocart1.setVisible(true);
+        buynow.setVisible(false);
+
+        box1.setVisible(true);
+        box2.setVisible(false);
+        box3.setVisible(false);
+        box4.setVisible(false);
+
+        mouse1.setVisible(true);
+        mouse2.setVisible(false);
+        mouse3.setVisible(false);
+        mouse4.setVisible(false);
+        mouse5.setVisible(false);
+
+        keyboard1.setVisible(false);
+        keyboard2.setVisible(false);
+        keyboard3.setVisible(false);
+        keyboard4.setVisible(false);
+        keyboard5.setVisible(false);
+
+        headset1.setVisible(false);
+        headset2.setVisible(false);
+        headset3.setVisible(false);
+        headset4.setVisible(false);
+        headset5.setVisible(false);
+
+        mat1.setVisible(false);
+        mat2.setVisible(false);
+        mat3.setVisible(false);
+        mat4.setVisible(false);
+        mat5.setVisible(false);
+        dropdown.setVisible(false);
+
+
+    }//GEN-LAST:event_jButton2MouseClicked
 
     public final void disable() {
         addtocart1.setVisible(false);
@@ -2392,8 +2483,11 @@ public class store extends javax.swing.JFrame {
     private javax.swing.JLabel icon2;
     private javax.swing.JLabel icon3;
     private javax.swing.JLabel icon4;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel keyboard1;
     private javax.swing.JLabel keyboard2;
     private javax.swing.JLabel keyboard3;
