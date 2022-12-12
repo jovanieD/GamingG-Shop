@@ -821,6 +821,11 @@ public class store extends javax.swing.JFrame {
 
         bg.setBackground(new java.awt.Color(153, 153, 153));
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg (2).jpg"))); // NOI18N
+        bg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bgMouseClicked(evt);
+            }
+        });
         main.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 530));
 
         getContentPane().add(main, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 530));
@@ -2155,6 +2160,11 @@ public class store extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_buynowMouseClicked
+
+    private void bgMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMouseClicked
+        // TODO add your handling code here:
+        dropdown.setVisible(false);
+    }//GEN-LAST:event_bgMouseClicked
 
     public final void disable() {
         addtocart1.setVisible(false);
