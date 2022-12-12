@@ -871,7 +871,7 @@ public class store extends javax.swing.JFrame {
         main.add(descrip3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 120, 40));
 
         bg.setBackground(new java.awt.Color(153, 153, 153));
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg (2).jpg"))); // NOI18N
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dash.jpg"))); // NOI18N
         bg.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bgMouseClicked(evt);
