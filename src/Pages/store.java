@@ -12,6 +12,8 @@ import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.bson.Document;
@@ -33,6 +35,7 @@ public class store extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
 
+        date();
         disable();
         disablelabel();
 
@@ -42,6 +45,7 @@ public class store extends javax.swing.JFrame {
         descrip3.setText(price);
 
         dropdown.setVisible(false);
+        jdate.setVisible(false);
 
         delete.setVisible(false);
 
@@ -77,6 +81,17 @@ public class store extends javax.swing.JFrame {
         mat3.setVisible(false);
         mat4.setVisible(false);
         mat5.setVisible(false);
+    }
+    
+    public final void date() {
+        Calendar c = new GregorianCalendar();
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        int m = c.get(Calendar.MONTH);
+        int year = c.get(Calendar.YEAR);
+        
+        int month = m +1;
+        jdate.setText("" + year + "/" + month + "/" + day + "");
+
     }
 
     public void data(String kuhn) {
@@ -139,6 +154,7 @@ public class store extends javax.swing.JFrame {
         addedtable = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         profname1 = new javax.swing.JLabel();
+        jdate = new javax.swing.JLabel();
         buynow = new javax.swing.JLabel();
         delete = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
@@ -493,6 +509,11 @@ public class store extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jButton1.setText("DASHBOARD");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         dropdown.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 100, 30));
 
         jButton2.setBackground(new java.awt.Color(0, 255, 255));
@@ -535,6 +556,7 @@ public class store extends javax.swing.JFrame {
         profname1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         profname1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         main.add(profname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 110, 30));
+        main.add(jdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 110, 20));
 
         buynow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buynow.png"))); // NOI18N
         buynow.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1036,6 +1058,8 @@ public class store extends javax.swing.JFrame {
 
     private void icon2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon2MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
 
         descrip1.setVisible(true);
         descrip2.setVisible(true);
@@ -1257,6 +1281,8 @@ public class store extends javax.swing.JFrame {
 
     private void icon4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon4MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
 
         descrip1.setVisible(true);
         descrip2.setVisible(true);
@@ -1310,6 +1336,8 @@ public class store extends javax.swing.JFrame {
 
     private void icon1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon1MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
 
         descrip1.setVisible(true);
         descrip2.setVisible(true);
@@ -1359,6 +1387,8 @@ public class store extends javax.swing.JFrame {
 
     private void icon3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon3MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
 
         descrip1.setVisible(true);
         descrip2.setVisible(true);
@@ -1414,6 +1444,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart1MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1449,6 +1482,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart2MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1482,6 +1518,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart3MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1515,6 +1554,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart4MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1548,6 +1590,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart5MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1581,6 +1626,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart6MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1614,6 +1662,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart7MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1647,6 +1698,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart8MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1680,6 +1734,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart9MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1713,6 +1770,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart10MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1746,6 +1806,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart11MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1779,6 +1842,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart12MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1812,6 +1878,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart13MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1845,6 +1914,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart14MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1878,6 +1950,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart15MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1911,6 +1986,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart16MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1944,6 +2022,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart17MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1977,6 +2058,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart18MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -2010,6 +2094,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart19MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -2043,6 +2130,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart20MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -2076,6 +2166,9 @@ public class store extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
+        
+        dropdown.setVisible(false);
+        
         descrip1.setVisible(false);
         descrip2.setVisible(false);
         descrip3.setVisible(false);
@@ -2142,6 +2235,7 @@ public class store extends javax.swing.JFrame {
         String pprice = txt3.getText();
         String pquant = txt4.getText();
         String ptotal = txt5.getText();
+        String date = jdate.getText();
 
         if (pquant.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Input Quantity!");
@@ -2163,6 +2257,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append(" P_Price", pprice);
                 collecting.append(" P_Quantity", pprice);
                 collecting.append(" P_Total", ptotal);
+                collecting.append(" Date", date);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "You purchase an item!");
                 addtocart1.setVisible(false);
@@ -2257,6 +2352,17 @@ public class store extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2MouseClicked
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        
+        User_Dashboard view = new User_Dashboard();
+        view.uname.setText(profname1.getText());
+        view.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    @Override
     public final void disable() {
         addtocart1.setVisible(false);
         addtocart2.setVisible(false);
@@ -2488,6 +2594,7 @@ public class store extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jdate;
     private javax.swing.JLabel keyboard1;
     private javax.swing.JLabel keyboard2;
     private javax.swing.JLabel keyboard3;

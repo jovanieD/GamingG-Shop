@@ -159,8 +159,6 @@ public class Login extends javax.swing.JFrame {
                     store toko = new store();
                     toko.profname1.setText(uname.getText());
                     toko.setVisible(true);
-
- 
                     this.setVisible(false);
 
                 } else {
