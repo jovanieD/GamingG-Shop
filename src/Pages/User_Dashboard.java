@@ -89,6 +89,7 @@ public final class User_Dashboard extends javax.swing.JFrame {
         uname.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
         uname.setForeground(new java.awt.Color(0, 255, 255));
         uname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        uname.setText("Vanie");
         getContentPane().add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 120, 40));
 
         btn1.setBackground(new java.awt.Color(255, 0, 0));
