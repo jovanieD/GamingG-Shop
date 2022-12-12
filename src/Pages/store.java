@@ -24,7 +24,6 @@ public class store extends javax.swing.JFrame {
 
     DB db;
     DBCollection collect;
-    BasicDBObject backup;
 
     MongoClient mongo;
     MongoDatabase dbconnection;
@@ -36,6 +35,13 @@ public class store extends javax.swing.JFrame {
 
         disable();
         disablelabel();
+
+        String tag = "GM 1";
+        String price = "999";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
+        dropdown.setVisible(false);
 
         delete.setVisible(false);
 
@@ -125,6 +131,7 @@ public class store extends javax.swing.JFrame {
         i14 = new javax.swing.JLabel();
         i15 = new javax.swing.JLabel();
         lowerbg2 = new javax.swing.JLabel();
+        dropdown = new javax.swing.JPanel();
         main = new javax.swing.JPanel();
         addedtable = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
@@ -182,6 +189,9 @@ public class store extends javax.swing.JFrame {
         mouse3 = new javax.swing.JLabel();
         mouse4 = new javax.swing.JLabel();
         mouse5 = new javax.swing.JLabel();
+        descrip1 = new javax.swing.JLabel();
+        descrip2 = new javax.swing.JLabel();
+        descrip3 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -247,7 +257,7 @@ public class store extends javax.swing.JFrame {
 
         getContentPane().add(side, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 530));
 
-        box4.setBackground(new java.awt.Color(255, 0, 0));
+        box4.setBackground(new java.awt.Color(0, 255, 255));
         box4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         i16.setBackground(new java.awt.Color(102, 255, 204));
@@ -255,6 +265,9 @@ public class store extends javax.swing.JFrame {
         i16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 i16MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                i16MouseEntered(evt);
             }
         });
         box4.add(i16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
@@ -301,7 +314,7 @@ public class store extends javax.swing.JFrame {
 
         getContentPane().add(box4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, -1, 80));
 
-        box1.setBackground(new java.awt.Color(255, 0, 0));
+        box1.setBackground(new java.awt.Color(0, 255, 255));
         box1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         i1.setBackground(new java.awt.Color(102, 255, 204));
@@ -356,7 +369,7 @@ public class store extends javax.swing.JFrame {
 
         getContentPane().add(box1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, -1, 80));
 
-        box2.setBackground(new java.awt.Color(255, 0, 0));
+        box2.setBackground(new java.awt.Color(0, 255, 255));
         box2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         i6.setBackground(new java.awt.Color(102, 255, 204));
@@ -410,7 +423,7 @@ public class store extends javax.swing.JFrame {
 
         getContentPane().add(box2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, -1, 80));
 
-        box3.setBackground(new java.awt.Color(255, 0, 0));
+        box3.setBackground(new java.awt.Color(0, 255, 255));
         box3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         i11.setBackground(new java.awt.Color(102, 255, 204));
@@ -463,6 +476,7 @@ public class store extends javax.swing.JFrame {
         box3.add(lowerbg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, 6, 570, 70));
 
         getContentPane().add(box3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, -1, 80));
+        getContentPane().add(dropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 60, 120, 130));
 
         main.setBackground(new java.awt.Color(204, 255, 255));
         main.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -488,12 +502,17 @@ public class store extends javax.swing.JFrame {
         main.add(addedtable, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, 350));
 
         profname1.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        profname1.setForeground(new java.awt.Color(255, 0, 0));
+        profname1.setForeground(new java.awt.Color(0, 255, 255));
         profname1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         profname1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         main.add(profname1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 110, 30));
 
         buynow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buynow.png"))); // NOI18N
+        buynow.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buynowMouseClicked(evt);
+            }
+        });
         main.add(buynow, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 440, 220, 60));
 
         delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete.PNG"))); // NOI18N
@@ -506,8 +525,21 @@ public class store extends javax.swing.JFrame {
 
         name.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
         name.setForeground(new java.awt.Color(255, 0, 0));
-        name.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/i_login.png"))); // NOI18N
-        main.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 20, 40, 30));
+        name.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/profilelogo.png"))); // NOI18N
+        name.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                nameMouseMoved(evt);
+            }
+        });
+        name.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                nameMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                nameMouseReleased(evt);
+            }
+        });
+        main.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, 50, -1));
 
         label1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         label1.setForeground(new java.awt.Color(255, 255, 255));
@@ -774,6 +806,19 @@ public class store extends javax.swing.JFrame {
         mouse5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/5 (1).png"))); // NOI18N
         main.add(mouse5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 46, 630, 360));
 
+        descrip1.setFont(new java.awt.Font("Verdana", 1, 64)); // NOI18N
+        descrip1.setForeground(new java.awt.Color(0, 255, 255));
+        main.add(descrip1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 220, 70));
+
+        descrip2.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        descrip2.setForeground(new java.awt.Color(0, 255, 255));
+        descrip2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/g-removebg-preview (1).png"))); // NOI18N
+        main.add(descrip2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 40));
+
+        descrip3.setFont(new java.awt.Font("Verdana", 3, 36)); // NOI18N
+        descrip3.setForeground(new java.awt.Color(0, 255, 255));
+        main.add(descrip3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 120, 40));
+
         bg.setBackground(new java.awt.Color(153, 153, 153));
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bg (2).jpg"))); // NOI18N
         main.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 530));
@@ -785,6 +830,12 @@ public class store extends javax.swing.JFrame {
 
     private void i2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i2MouseClicked
         // TODO add your handling code here:
+
+        String tag = "GM 2";
+        String price = "1200";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         mouse2.setVisible(true);
         mouse1.setVisible(false);
         mouse3.setVisible(false);
@@ -797,6 +848,11 @@ public class store extends javax.swing.JFrame {
 
     private void i1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i1MouseClicked
         // TODO add your handling code here:
+        String tag = "GM 1";
+        String price = "999";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         mouse1.setVisible(true);
         mouse2.setVisible(false);
         mouse3.setVisible(false);
@@ -809,6 +865,10 @@ public class store extends javax.swing.JFrame {
 
     private void i3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i3MouseClicked
         // TODO add your handling code here:
+        String tag = "GM 3";
+        String price = "1000";
+        descrip1.setText(tag);
+        descrip3.setText(price);
         mouse3.setVisible(true);
         mouse2.setVisible(false);
         mouse1.setVisible(false);
@@ -821,6 +881,11 @@ public class store extends javax.swing.JFrame {
 
     private void i4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i4MouseClicked
         // TODO add your handling code here:
+        String tag = "GM 4";
+        String price = "650";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         mouse4.setVisible(true);
         mouse1.setVisible(false);
         mouse2.setVisible(false);
@@ -833,6 +898,11 @@ public class store extends javax.swing.JFrame {
 
     private void i5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i5MouseClicked
         // TODO add your handling code here:
+        String tag = "GM 5";
+        String price = "1000";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         mouse5.setVisible(true);
         mouse1.setVisible(false);
         mouse2.setVisible(false);
@@ -845,6 +915,12 @@ public class store extends javax.swing.JFrame {
 
     private void i6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i6MouseClicked
         // TODO add your handling code here:
+
+        String tag = "GK 1";
+        String price = "1200";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         keyboard1.setVisible(true);
         keyboard2.setVisible(false);
         keyboard3.setVisible(false);
@@ -857,6 +933,12 @@ public class store extends javax.swing.JFrame {
 
     private void i7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i7MouseClicked
         // TODO add your handling code here:
+
+        String tag = "GK 2";
+        String price = "1700";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         keyboard2.setVisible(true);
         keyboard1.setVisible(false);
         keyboard3.setVisible(false);
@@ -869,6 +951,11 @@ public class store extends javax.swing.JFrame {
 
     private void i8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i8MouseClicked
         // TODO add your handling code here:
+        String tag = "GK 3";
+        String price = "1200";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         keyboard3.setVisible(true);
         keyboard2.setVisible(false);
         keyboard1.setVisible(false);
@@ -881,6 +968,11 @@ public class store extends javax.swing.JFrame {
 
     private void i9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i9MouseClicked
         // TODO add your handling code here:
+        String tag = "GK 4";
+        String price = "1300";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         keyboard4.setVisible(true);
         keyboard2.setVisible(false);
         keyboard3.setVisible(false);
@@ -893,6 +985,11 @@ public class store extends javax.swing.JFrame {
 
     private void i10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i10MouseClicked
         // TODO add your handling code here:
+        String tag = "GK 5";
+        String price = "1700";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         keyboard5.setVisible(true);
         keyboard2.setVisible(false);
         keyboard3.setVisible(false);
@@ -905,6 +1002,15 @@ public class store extends javax.swing.JFrame {
 
     private void icon2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon2MouseClicked
         // TODO add your handling code here:
+
+        descrip1.setVisible(true);
+        descrip2.setVisible(true);
+        descrip3.setVisible(true);
+
+        String tag = "GM 1";
+        String price = "999";
+        descrip1.setText(tag);
+        descrip3.setText(price);
 
         disablelabel();
         delete.setVisible(false);
@@ -946,6 +1052,10 @@ public class store extends javax.swing.JFrame {
 
     private void i11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i11MouseClicked
         // TODO add your handling code here:
+        String tag = "GH 1";
+        String price = "800";
+        descrip1.setText(tag);
+        descrip3.setText(price);
 
         headset1.setVisible(true);
         headset2.setVisible(false);
@@ -959,6 +1069,11 @@ public class store extends javax.swing.JFrame {
 
     private void i12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i12MouseClicked
         // TODO add your handling code here:
+        String tag = "GH 2";
+        String price = "950";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         headset2.setVisible(true);
         headset1.setVisible(false);
         headset3.setVisible(false);
@@ -971,6 +1086,11 @@ public class store extends javax.swing.JFrame {
 
     private void i13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i13MouseClicked
         // TODO add your handling code here:
+        String tag = "GH 3";
+        String price = "1200";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         headset3.setVisible(true);
         headset2.setVisible(false);
         headset1.setVisible(false);
@@ -983,6 +1103,11 @@ public class store extends javax.swing.JFrame {
 
     private void i14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i14MouseClicked
         // TODO add your handling code here:
+        String tag = "GH 4";
+        String price = "1000";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         headset4.setVisible(true);
         headset2.setVisible(false);
         headset3.setVisible(false);
@@ -995,6 +1120,12 @@ public class store extends javax.swing.JFrame {
 
     private void i15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i15MouseClicked
         // TODO add your handling code here:
+
+        String tag = "GH 5";
+        String price = "1500";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         headset5.setVisible(true);
         headset2.setVisible(false);
         headset3.setVisible(false);
@@ -1007,6 +1138,11 @@ public class store extends javax.swing.JFrame {
 
     private void i16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i16MouseClicked
         // TODO add your handling code here:
+        String tag = "GA 1";
+        String price = "500";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         mat1.setVisible(true);
         mat2.setVisible(false);
         mat3.setVisible(false);
@@ -1019,6 +1155,11 @@ public class store extends javax.swing.JFrame {
 
     private void i17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i17MouseClicked
         // TODO add your handling code here:
+        String tag = "GA 2";
+        String price = "500";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         mat2.setVisible(true);
         mat1.setVisible(false);
         mat3.setVisible(false);
@@ -1031,6 +1172,11 @@ public class store extends javax.swing.JFrame {
 
     private void i18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i18MouseClicked
         // TODO add your handling code here:
+        String tag = "GA 3";
+        String price = "1200";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         mat3.setVisible(true);
         mat2.setVisible(false);
         mat1.setVisible(false);
@@ -1043,6 +1189,11 @@ public class store extends javax.swing.JFrame {
 
     private void i19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i19MouseClicked
         // TODO add your handling code here:
+        String tag = "GA 4";
+        String price = "500";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         mat4.setVisible(true);
         mat2.setVisible(false);
         mat3.setVisible(false);
@@ -1055,6 +1206,11 @@ public class store extends javax.swing.JFrame {
 
     private void i20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i20MouseClicked
         // TODO add your handling code here:
+        String tag = "GA 5";
+        String price = "500";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         mat5.setVisible(true);
         mat2.setVisible(false);
         mat3.setVisible(false);
@@ -1067,6 +1223,16 @@ public class store extends javax.swing.JFrame {
 
     private void icon4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon4MouseClicked
         // TODO add your handling code here:
+
+        descrip1.setVisible(true);
+        descrip2.setVisible(true);
+        descrip3.setVisible(true);
+
+        String tag = "GK 1";
+        String price = "1200";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         disablelabel();
         delete.setVisible(false);
         addedtable.setVisible(false);
@@ -1110,6 +1276,16 @@ public class store extends javax.swing.JFrame {
 
     private void icon1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon1MouseClicked
         // TODO add your handling code here:
+
+        descrip1.setVisible(true);
+        descrip2.setVisible(true);
+        descrip3.setVisible(true);
+
+        String tag = "GH 1";
+        String price = "800";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         disablelabel();
         delete.setVisible(false);
         addedtable.setVisible(false);
@@ -1149,6 +1325,16 @@ public class store extends javax.swing.JFrame {
 
     private void icon3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon3MouseClicked
         // TODO add your handling code here:
+
+        descrip1.setVisible(true);
+        descrip2.setVisible(true);
+        descrip3.setVisible(true);
+
+        String tag = "GA 1";
+        String price = "500";
+        descrip1.setText(tag);
+        descrip3.setText(price);
+
         disablelabel();
         delete.setVisible(false);
         addedtable.setVisible(false);
@@ -1531,7 +1717,7 @@ public class store extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
             new Login().setVisible(true);
             this.setVisible(false);
-        } else {;
+        } else {
             String name = "Gaming Headset 1";
             String description = "Wired, Bloody";
             String price = "800";
@@ -1856,6 +2042,10 @@ public class store extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
+        descrip1.setVisible(false);
+        descrip2.setVisible(false);
+        descrip3.setVisible(false);
+
         disable();
         disabbox();
         enalelabel();
@@ -1886,8 +2076,85 @@ public class store extends javax.swing.JFrame {
     private void deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteMouseClicked
         // TODO add your handling code here:
         delete();
+        showlisted();
 
     }//GEN-LAST:event_deleteMouseClicked
+
+    private void i16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_i16MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_i16MouseEntered
+
+    private void nameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameMousePressed
+        // TODO add your handling code here:
+        dropdown.setVisible(true);
+    }//GEN-LAST:event_nameMousePressed
+
+    private void nameMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameMouseMoved
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_nameMouseMoved
+
+    private void nameMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameMouseReleased
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_nameMouseReleased
+
+    private void buynowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buynowMouseClicked
+        // TODO add your handling code here:
+
+        String Username = profname1.getText();
+        String pname = txt1.getText();
+        String pdec = txt2.getText();
+        String pprice = txt3.getText();
+        String pquant = txt4.getText();
+        String ptotal = txt5.getText();
+
+        if (pquant.isBlank()) {
+            JOptionPane.showMessageDialog(null, "Please Input Quantity!");
+        }else if (pname.isBlank()){
+            JOptionPane.showMessageDialog(null, "Please select an item");
+        }else if (pprice.isBlank()){
+            JOptionPane.showMessageDialog(null, "Please select an item");
+        }else {
+            try {
+                mongo = new MongoClient("localhost", 27017);
+                dbconnection = mongo.getDatabase("BigData");
+                collection = dbconnection.getCollection("sold");
+
+                Document collecting = new Document();
+
+                collecting.append("Username", Username);
+                collecting.append("P_Name ", pname);
+                collecting.append(" P_Description", pdec);
+                collecting.append(" P_Price", pprice);
+                collecting.append(" P_Quantity", pprice);
+                collecting.append(" P_Total", ptotal);
+                collection.insertOne(collecting);
+                JOptionPane.showMessageDialog(null, "You purchase an item!");
+                addtocart1.setVisible(false);
+
+                collect = db.getCollection("listed");
+
+                BasicDBObject listdelete = new BasicDBObject();
+                listdelete.put("Name", pname);
+                listdelete.put("Description", pdec);
+                listdelete.put("Price", pprice);
+                collect.findAndRemove(listdelete);
+                showlisted();
+
+                txt1.setText("");
+                txt2.setText("");
+                txt3.setText("");
+                txt4.setText("");
+                txt5.setText("");
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+
+    }//GEN-LAST:event_buynowMouseClicked
 
     public final void disable() {
         addtocart1.setVisible(false);
@@ -2082,6 +2349,10 @@ public class store extends javax.swing.JFrame {
     private javax.swing.JPanel box4;
     private javax.swing.JLabel buynow;
     private javax.swing.JLabel delete;
+    private javax.swing.JLabel descrip1;
+    private javax.swing.JLabel descrip2;
+    private javax.swing.JLabel descrip3;
+    private javax.swing.JPanel dropdown;
     private javax.swing.JLabel headset1;
     private javax.swing.JLabel headset2;
     private javax.swing.JLabel headset3;
