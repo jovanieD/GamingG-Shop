@@ -129,6 +129,11 @@ public final class User_Dashboard extends javax.swing.JFrame {
         btn4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn4.setForeground(new java.awt.Color(255, 255, 255));
         btn4.setText("OUR TEAM");
+        btn4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn4MouseClicked(evt);
+            }
+        });
         btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn4ActionPerformed(evt);
@@ -140,6 +145,11 @@ public final class User_Dashboard extends javax.swing.JFrame {
         btn2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn2.setForeground(new java.awt.Color(255, 255, 255));
         btn2.setText("ABOUT ");
+        btn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn2MouseClicked(evt);
+            }
+        });
         getContentPane().add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 140, 40));
 
         arrow.setBackground(new java.awt.Color(255, 0, 0));
@@ -267,6 +277,16 @@ public final class User_Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         display();
     }//GEN-LAST:event_btn1MouseClicked
+
+    private void btn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn2MouseClicked
+        new AboutUs().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn2MouseClicked
+
+    private void btn4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn4MouseClicked
+        new ourTeam1().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn4MouseClicked
 
     public void cartdisplay(){
         showtable2.setVisible(true);
