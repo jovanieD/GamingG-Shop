@@ -268,6 +268,7 @@ public class contact extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Enter your message!");
             }else {
                 collecting.append("Fullname", jfullname.getText());
+                 collecting.append("Username", namecontact.getText());
                 collecting.append("Email", jemail.getText());
                 collecting.append("Message", jtxt.getText());
                 collecting.append("Date", jdate.getText());
