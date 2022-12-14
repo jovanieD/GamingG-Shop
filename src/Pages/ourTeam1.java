@@ -15,6 +15,7 @@ public class ourTeam1 extends javax.swing.JFrame {
      */
     public ourTeam1() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -29,6 +30,7 @@ public class ourTeam1 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        otname = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
@@ -60,6 +62,11 @@ public class ourTeam1 extends javax.swing.JFrame {
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setText("Bejoc");
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, 30));
+
+        otname.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
+        otname.setForeground(new java.awt.Color(0, 255, 255));
+        otname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel1.add(otname, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 510, 120, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/222.jpg"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 100, 130));
@@ -124,7 +131,7 @@ public class ourTeam1 extends javax.swing.JFrame {
                 arrowMouseClicked(evt);
             }
         });
-        jPanel1.add(arrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 70, 50));
+        jPanel1.add(arrow, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 70, 50));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/dash.jpg"))); // NOI18N
         jLabel9.setText("jLabel1");
@@ -145,7 +152,9 @@ public class ourTeam1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void arrowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arrowMouseClicked
-        new User_Dashboard().setVisible(true);
+        User_Dashboard n = new User_Dashboard();
+        n.uname.setText(otname.getText());
+        n.show();
         this.setVisible(false);
     }//GEN-LAST:event_arrowMouseClicked
 
@@ -172,5 +181,6 @@ public class ourTeam1 extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    public javax.swing.JLabel otname;
     // End of variables declaration//GEN-END:variables
 }

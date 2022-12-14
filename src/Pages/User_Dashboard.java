@@ -185,7 +185,6 @@ public final class User_Dashboard extends javax.swing.JFrame {
         uname.setFont(new java.awt.Font("Sitka Small", 1, 18)); // NOI18N
         uname.setForeground(new java.awt.Color(0, 255, 255));
         uname.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        uname.setText("asdf");
         getContentPane().add(uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 120, 40));
 
         about1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -458,32 +457,37 @@ public final class User_Dashboard extends javax.swing.JFrame {
 
     private void btn4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn4MouseClicked
 
-        showtable1.setVisible(false);
-        showtable2.setVisible(false);
-        
-        about1.setVisible(false);
-        about2.setVisible(false);
-        about3.setVisible(false);
-        about4.setVisible(false);
-        about5.setVisible(false);
-        about6.setVisible(false);
-        about7.setVisible(false);
-        about8.setVisible(false);
-        
-        ot1.setVisible(true);
-        ot2.setVisible(true);
-        ot3.setVisible(true);
-        ot4.setVisible(true);
-        ot5.setVisible(true);
-        ot6.setVisible(true);
-        ot7.setVisible(true);
-        ot8.setVisible(true);
-        ot9.setVisible(true);
-        ot10.setVisible(true);
-        ot11.setVisible(true);
-        ot12.setVisible(true);
-        ot13.setVisible(true);
-        ot14.setVisible(true);
+        ourTeam1 n = new ourTeam1();
+        n.otname.setText(uname.getText());
+        n.show();
+        this.setVisible(false);
+                
+//        showtable1.setVisible(false);
+//        showtable2.setVisible(false);
+//        
+//        about1.setVisible(false);
+//        about2.setVisible(false);
+//        about3.setVisible(false);
+//        about4.setVisible(false);
+//        about5.setVisible(false);
+//        about6.setVisible(false);
+//        about7.setVisible(false);
+//        about8.setVisible(false);
+//        
+//        ot1.setVisible(true);
+//        ot2.setVisible(true);
+//        ot3.setVisible(true);
+//        ot4.setVisible(true);
+//        ot5.setVisible(true);
+//        ot6.setVisible(true);
+//        ot7.setVisible(true);
+//        ot8.setVisible(true);
+//        ot9.setVisible(true);
+//        ot10.setVisible(true);
+//        ot11.setVisible(true);
+//        ot12.setVisible(true);
+//        ot13.setVisible(true);
+//        ot14.setVisible(true);
 
 
     }//GEN-LAST:event_btn4MouseClicked
@@ -577,14 +581,14 @@ public final class User_Dashboard extends javax.swing.JFrame {
         }
     }
 
-//    public static void main(String args[]) {
-//
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new User_Dashboard().setVisible(true);
-//            }
-//        });
-//    }
+    public static void main(String args[]) {
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new User_Dashboard().setVisible(true);
+            }
+        });
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
