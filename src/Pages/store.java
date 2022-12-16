@@ -82,14 +82,14 @@ public class store extends javax.swing.JFrame {
         mat4.setVisible(false);
         mat5.setVisible(false);
     }
-    
+
     public final void date() {
         Calendar c = new GregorianCalendar();
         int day = c.get(Calendar.DAY_OF_MONTH);
         int m = c.get(Calendar.MONTH);
         int year = c.get(Calendar.YEAR);
-        
-        int month = m +1;
+
+        int month = m + 1;
         jdate.setText("" + year + "/" + month + "/" + day + "");
 
     }
@@ -1058,7 +1058,7 @@ public class store extends javax.swing.JFrame {
 
     private void icon2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon2MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
 
         descrip1.setVisible(true);
@@ -1281,7 +1281,7 @@ public class store extends javax.swing.JFrame {
 
     private void icon4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon4MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
 
         descrip1.setVisible(true);
@@ -1336,7 +1336,7 @@ public class store extends javax.swing.JFrame {
 
     private void icon1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon1MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
 
         descrip1.setVisible(true);
@@ -1387,7 +1387,7 @@ public class store extends javax.swing.JFrame {
 
     private void icon3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon3MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
 
         descrip1.setVisible(true);
@@ -1442,9 +1442,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart1MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1455,6 +1455,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming mice 1";
             String description = " Wireless , Bluetooth";
             String price = "999";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1467,6 +1468,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart1.setVisible(false);
@@ -1480,9 +1482,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart2MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1492,6 +1494,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming mice 2";
             String description = "Wired,  Wireless , Bluetooth, RGB";
             String price = "1200";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1504,6 +1507,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart2.setVisible(false);
@@ -1516,9 +1520,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart3MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1528,6 +1532,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming mice 3";
             String description = "Wired, Bluetooth, Color (blue)";
             String price = "1000";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1540,6 +1545,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart3.setVisible(false);
@@ -1552,9 +1558,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart4MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1564,6 +1570,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming mice 4";
             String description = "Wired, Color (Red)";
             String price = "650";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1576,6 +1583,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart4.setVisible(false);
@@ -1588,9 +1596,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart5MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1600,6 +1608,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming mice 5";
             String description = "Wired, Bluetooth, RBG";
             String price = "1000";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1612,6 +1621,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart5.setVisible(false);
@@ -1624,9 +1634,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart6MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1636,6 +1646,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Keyboard 1";
             String description = "Wired, RBG";
             String price = "1200";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1648,6 +1659,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart6.setVisible(false);
@@ -1660,9 +1672,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart7MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1672,6 +1684,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Keyboard 2";
             String description = "Wired, Color (Violet), Inpired by Transformer";
             String price = "1700";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1684,6 +1697,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart7.setVisible(false);
@@ -1696,9 +1710,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart8MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1708,6 +1722,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Keyboard 3";
             String description = "Wired, RBG , Bloody";
             String price = "1200";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1720,6 +1735,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart8.setVisible(false);
@@ -1732,9 +1748,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart9MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1744,6 +1760,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Keyboard 4";
             String description = "Wired, RBG , Comfortable Bloody";
             String price = "1300";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1756,6 +1773,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart9.setVisible(false);
@@ -1768,9 +1786,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart10MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1780,6 +1798,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Keyboard 5";
             String description = "Wired, Wireless,  RBG ,Comfort Bloody";
             String price = "1900";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1792,6 +1811,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart10.setVisible(false);
@@ -1804,9 +1824,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart11MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1816,6 +1836,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Headset 1";
             String description = "Wired, Bloody";
             String price = "800";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1828,6 +1849,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart11.setVisible(false);
@@ -1840,9 +1862,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart12MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1852,6 +1874,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Headset 2";
             String description = "Wired, Bloody, RGB";
             String price = "950";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1864,6 +1887,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart12.setVisible(false);
@@ -1876,9 +1900,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart13MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1888,6 +1912,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Headset 3";
             String description = "Wired,Comforatable Bloody, ";
             String price = "1200";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1900,6 +1925,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart13.setVisible(false);
@@ -1912,9 +1938,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart14MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1924,6 +1950,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Headset 4";
             String description = "Wired, Bloody ";
             String price = "1000";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1936,6 +1963,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart14.setVisible(false);
@@ -1948,9 +1976,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart15MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1960,6 +1988,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Headset 5";
             String description = "Wired Comforatable Bloody, ";
             String price = "1500";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -1972,6 +2001,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart15.setVisible(false);
@@ -1984,9 +2014,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart16MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -1996,6 +2026,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Mousepad 1";
             String description = "Bloody Headshot";
             String price = "500";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -2008,6 +2039,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart16.setVisible(false);
@@ -2020,9 +2052,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart17MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -2032,6 +2064,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Mousepad 2";
             String description = "Bloody Handprint";
             String price = "500";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -2044,6 +2077,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart17.setVisible(false);
@@ -2056,9 +2090,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart18MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -2068,6 +2102,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Mousepad 3";
             String description = "Bloody Handprint";
             String price = "1200";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -2080,6 +2115,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart18.setVisible(false);
@@ -2092,9 +2128,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart19MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -2104,6 +2140,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Mousepad 4";
             String description = "Bloody Handprint, Bloody Fire";
             String price = "500";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -2116,6 +2153,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart19.setVisible(false);
@@ -2128,9 +2166,9 @@ public class store extends javax.swing.JFrame {
 
     private void addtocart20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addtocart20MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         String userid = profname1.getText();
         if (userid.isBlank()) {
             JOptionPane.showMessageDialog(null, "Please Log in your account!");
@@ -2140,6 +2178,7 @@ public class store extends javax.swing.JFrame {
             String name = "Gaming Mousepad 5";
             String description = "Bloody Handprint, Large";
             String price = "500";
+            String dte = jdate.getText();
 
             try {
                 mongo = new MongoClient("localhost", 27017);
@@ -2152,6 +2191,7 @@ public class store extends javax.swing.JFrame {
                 collecting.append("Name", name);
                 collecting.append("Description", description);
                 collecting.append("Price", price);
+                collecting.append("Date", dte);
                 collection.insertOne(collecting);
                 JOptionPane.showMessageDialog(null, "Item being added to the cart");
                 addtocart20.setVisible(false);
@@ -2164,9 +2204,9 @@ public class store extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
-        
+
         dropdown.setVisible(false);
-        
+
         descrip1.setVisible(false);
         descrip2.setVisible(false);
         descrip3.setVisible(false);
@@ -2352,7 +2392,7 @@ public class store extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        
+
         User_Dashboard view = new User_Dashboard();
         view.uname.setText(profname1.getText());
         view.display();
@@ -2449,18 +2489,39 @@ public class store extends javax.swing.JFrame {
         String g = txt1.getText();
         String gg = txt2.getText();
         String ggg = txt3.getText();
+        String gggg = profname1.getText();
+        String dte = jdate.getText();
         collect = db.getCollection("listed");
 
         BasicDBObject listdelete = new BasicDBObject();
         listdelete.put("Name", g);
         listdelete.put("Description", gg);
         listdelete.put("Price", ggg);
-        collect.findAndRemove(listdelete);
-        txt1.setText("");
-        txt2.setText("");
-        txt3.setText("");
+        try {
+            mongo = new MongoClient("localhost", 27017);
+            dbconnection = mongo.getDatabase("BigData");
+            collection = dbconnection.getCollection("deleted");
 
-        showlisted();
+            Document collecting = new Document();
+
+            collecting.append("UserID",gggg );
+            collecting.append("Name", g);
+            collecting.append("Description", gg);
+            collecting.append("Price", ggg);
+            collecting.append("Date", dte);
+            collection.insertOne(collecting);
+            JOptionPane.showMessageDialog(null, "Item being deleted");
+            collect.findAndRemove(listdelete);
+            txt1.setText("");
+            txt2.setText("");
+            txt3.setText("");
+
+            showlisted();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public void showlisted() {
